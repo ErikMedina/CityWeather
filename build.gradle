@@ -15,6 +15,15 @@ buildscript {
     }
 }
 
+ext {
+    supportLibraryVersion = '27.1.1'
+    constraintLayoutVersion = '1.1.0'
+    daggerVersion = '2.11'
+    retrofitVersion = '2.2.0'
+    gsonVersion = '2.8.1'
+    okhttp3Version = '3.6.0'
+}
+
 allprojects {
     repositories {
         google()
