@@ -5,5 +5,5 @@ package com.erikmedina.cityweather.data.remote.service
  */
 interface ApiRest {
 
-    fun getCurrentCitiesTemperature(appId: String, citiesIds: ArrayList<Int>, units: String)
+    fun getCurrentCitiesTemperature(appId: String, citiesIds: IntArray, units: String)
 }

@@ -2,9 +2,10 @@ package com.erikmedina.cityweather.di.component
 
 import android.content.Context
 import com.erikmedina.cityweather.MyApplication
-import com.erikmedina.cityweather.di.annotation.MyApplicationContext
+import com.erikmedina.cityweather.data.remote.service.ApiRest
 import com.erikmedina.cityweather.di.module.MyApplicationModule
-import com.erikmedina.cityweather.presentation.main.MainPresenter
+import com.erikmedina.cityweather.di.qualifier.MyApplicationContext
+import com.erikmedina.cityweather.domain.repository.Repository
 import dagger.Component
 import javax.inject.Singleton
 
@@ -17,7 +18,9 @@ interface MyApplicationComponent {
 
     val myApplication: MyApplication
 
-    val mainPresenter: MainPresenter
+    val repository: Repository
+
+    val apiRest: ApiRest
 
     fun inject(myApplication: MyApplication)
 
