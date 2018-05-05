@@ -2,7 +2,9 @@ package com.erikmedina.cityweather.presentation
 
 import android.support.v7.app.AppCompatActivity
 
-open class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity() {
+
+    protected abstract fun initializeDependencyInjector()
 
     fun showLoading() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
