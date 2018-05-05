@@ -2,6 +2,7 @@ package com.erikmedina.cityweather.di.module
 
 import android.content.Context
 import com.erikmedina.cityweather.MyApplication
+import com.erikmedina.cityweather.data.remote.service.RetrofitFactory
 import com.erikmedina.cityweather.di.annotation.MyApplicationContext
 import com.erikmedina.cityweather.presentation.main.MainPresenter
 import dagger.Module
@@ -19,6 +20,11 @@ class MyApplicationModule(private val myApplication: MyApplication) {
     @Provides
     internal fun provideMyApplication(): MyApplication {
         return myApplication
+    }
+
+    @Provides
+    fun provideRetrofitFactory(): RetrofitFactory {
+        return RetrofitFactory
     }
 
     @Provides
