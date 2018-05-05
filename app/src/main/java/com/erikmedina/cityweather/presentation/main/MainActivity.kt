@@ -16,6 +16,7 @@ class MainActivity : BaseActivity(), MainContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        presenter.getCitiesTemperature()
     }
 
     override fun initializeDependencyInjector() {

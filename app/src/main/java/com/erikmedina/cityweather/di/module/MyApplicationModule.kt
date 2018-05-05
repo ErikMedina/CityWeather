@@ -2,6 +2,7 @@ package com.erikmedina.cityweather.di.module
 
 import android.content.Context
 import com.erikmedina.cityweather.MyApplication
+import com.erikmedina.cityweather.data.remote.service.ApiRest
 import com.erikmedina.cityweather.data.remote.service.RetrofitFactory
 import com.erikmedina.cityweather.di.qualifier.MyApplicationContext
 import com.erikmedina.cityweather.domain.repository.Repository
@@ -29,7 +30,11 @@ class MyApplicationModule(private val myApplication: MyApplication) {
     }
 
     @Provides
-    fun provideRepository(retrofit: RetrofitFactory): Repository {
-        return RepositoryImpl(retrofit)
+    fun provideRepository(apiRest: ApiRest): Repository {
+        return RepositoryImpl(apiRest)
+    }
+
+    @Provides fun provideApiRest(): ApiRest {
+        return RetrofitFactory.createWebService()
     }
 }

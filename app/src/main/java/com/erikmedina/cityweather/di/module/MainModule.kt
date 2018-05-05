@@ -21,5 +21,4 @@ class MainModule {
             repository: Repository): GetCitiesTemperatureInteractor {
         return GetCitiesTemperatureInteractorImpl(repository)
     }
-
 }

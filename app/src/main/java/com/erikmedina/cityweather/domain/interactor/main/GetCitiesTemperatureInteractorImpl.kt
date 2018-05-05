@@ -8,9 +8,9 @@ class GetCitiesTemperatureInteractorImpl
 @Inject
 constructor(private val repository: Repository) : GetCitiesTemperatureInteractor {
 
-    lateinit var citiesIds: ArrayList<Int>
+    private lateinit var citiesIds: IntArray
 
-    override fun run(citiesIds: ArrayList<Int>) {
+    override fun run(citiesIds: IntArray) {
         this.citiesIds = citiesIds
         execute()
     }

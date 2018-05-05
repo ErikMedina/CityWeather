@@ -1,22 +1,20 @@
 package com.erikmedina.cityweather.domain.repository
 
+import android.util.Log
 import com.erikmedina.cityweather.data.remote.service.ApiRest
-import com.erikmedina.cityweather.data.remote.service.RetrofitFactory
-import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class RepositoryImpl
-@Inject
-constructor(retrofitFactory: RetrofitFactory) : Repository {
+class RepositoryImpl constructor(private val apiRest: ApiRest) : Repository {
 
-    val TAG = RepositoryImpl::class.java.simpleName
-    val APP_ID = "26fb9eeb3fee7b3a36850be40b789f2f"
-    val METRIC = "metric"
-
-    private val apiRest: ApiRest = retrofitFactory.createWebService()
-
-    override fun getCitiesTemperature(citiesIds: ArrayList<Int>) {
+    override fun getCitiesTemperature(citiesIds: IntArray) {
+        Log.i(TAG, "[getCitiesTemperature]")
         apiRest.getCurrentCitiesTemperature(APP_ID, citiesIds, METRIC)
+    }
+
+    companion object {
+        val TAG = RepositoryImpl::class.java.simpleName
+        const val APP_ID = "26fb9eeb3fee7b3a36850be40b789f2f"
+        const val METRIC = "metric"
     }
 }

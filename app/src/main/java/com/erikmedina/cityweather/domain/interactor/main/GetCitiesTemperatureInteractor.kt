@@ -11,5 +11,5 @@ interface GetCitiesTemperatureInteractor : Interactor {
         fun onError()
     }
 
-    fun run(citiesIds: ArrayList<Int>)
+    fun run(citiesIds: IntArray)
 }

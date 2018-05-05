@@ -15,5 +15,6 @@ interface MainContract {
 
     interface Presenter : BasePresenter<View> {
 
+        fun getCitiesTemperature()
     }
 }
