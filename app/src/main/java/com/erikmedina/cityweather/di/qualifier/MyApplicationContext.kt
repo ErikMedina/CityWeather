@@ -1,4 +1,4 @@
-package com.erikmedina.cityweather.di.annotation
+package com.erikmedina.cityweather.di.qualifier
 
 import javax.inject.Qualifier
 
