@@ -32,6 +32,12 @@ android {
     }
 }
 
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
@@ -52,4 +58,7 @@ dependencies {
 
     // Gson
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutinesVersion"
 }
