@@ -7,12 +7,14 @@ class MainPresenter
 @Inject
 constructor() : MainContract.Presenter, GetCitiesTemperatureInteractor.Callback {
 
+    private var view: MainContract.View? = null
+
     override fun takeView(view: MainContract.View) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        this.view = view
     }
 
     override fun dropView() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        view = null
     }
 
     override fun onSuccess() {
@@ -21,5 +23,9 @@ constructor() : MainContract.Presenter, GetCitiesTemperatureInteractor.Callback 
 
     override fun onError() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    companion object {
+        val TAG = MainPresenter::class.java.simpleName
     }
 }

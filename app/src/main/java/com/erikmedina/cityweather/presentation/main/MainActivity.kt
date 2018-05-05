@@ -6,8 +6,12 @@ import com.erikmedina.cityweather.R
 import com.erikmedina.cityweather.di.component.DaggerMainComponent
 import com.erikmedina.cityweather.di.module.MainModule
 import com.erikmedina.cityweather.presentation.BaseActivity
+import javax.inject.Inject
 
 class MainActivity : BaseActivity(), MainContract.View {
+
+    @Inject
+    lateinit var presenter: MainPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,9 +28,11 @@ class MainActivity : BaseActivity(), MainContract.View {
 
     override fun onResume() {
         super.onResume()
+        presenter.takeView(this)
     }
 
     override fun onPause() {
         super.onPause()
+        presenter.dropView()
     }
 }
