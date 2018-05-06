@@ -22,9 +22,4 @@ abstract class BaseActivity : AppCompatActivity() {
     fun hideLoading() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
-    fun showError(error: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
 }

@@ -28,8 +28,11 @@ constructor() : MainContract.Presenter {
                 view?.setCities(cities)
             }
 
-            override fun onError() {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            override fun onError(throwable: Throwable) {
+                //If we create an ErrorManager, depends of the type of error we can show different messages to
+                //the user. Now we show the same message.
+                // Also if we inject a context, we can retrieve string resources and avoid text hardcoding
+                view?.showError("There was a problem. Try later")
             }
         })
     }

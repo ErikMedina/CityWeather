@@ -3,8 +3,10 @@ package com.erikmedina.cityweather.presentation.main
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.view.View
 import com.erikmedina.cityweather.MyApplication
 import com.erikmedina.cityweather.R
 import com.erikmedina.cityweather.data.local.model.City
@@ -18,10 +20,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class MainActivity : BaseActivity(), MainContract.View {
+
     @Inject
     lateinit var presenter: MainPresenter
 
     private lateinit var context: Context
+
     private lateinit var adapter: CityAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,6 +70,11 @@ class MainActivity : BaseActivity(), MainContract.View {
 
     override fun setCities(cities: List<City>) {
         adapter.setCities(cities)
+    }
+
+    override fun showError(error: String) {
+        val rootView = window.decorView.findViewById<View>(android.R.id.content)
+        Snackbar.make(rootView, error, Snackbar.LENGTH_SHORT).show()
     }
 
     companion object {

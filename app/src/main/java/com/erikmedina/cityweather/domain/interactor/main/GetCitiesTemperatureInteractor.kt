@@ -9,7 +9,7 @@ interface GetCitiesTemperatureInteractor : Interactor {
 
         fun onSuccess(cities: List<City>)
 
-        fun onError()
+        fun onError(throwable: Throwable)
     }
 
     fun run(citiesIds: IntArray, callback: Callback)

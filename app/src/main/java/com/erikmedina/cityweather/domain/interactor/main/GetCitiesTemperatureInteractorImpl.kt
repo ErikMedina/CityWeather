@@ -27,7 +27,7 @@ constructor(private val repository: Repository) : GetCitiesTemperatureInteractor
                 }
 
                 override fun onError(throwable: Throwable) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                    callback.onError(throwable)
                 }
             })
         }
