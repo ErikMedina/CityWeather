@@ -8,6 +8,9 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Singleton
 
+/**
+ * The repository will be responsible for transforming the data for the input and output of information.
+ */
 @Singleton
 class RepositoryImpl constructor(private val apiRest: ApiRest) : Repository {
 
