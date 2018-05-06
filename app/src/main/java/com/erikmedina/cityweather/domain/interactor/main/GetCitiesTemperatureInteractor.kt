@@ -1,13 +1,13 @@
 package com.erikmedina.cityweather.domain.interactor.main
 
-import com.erikmedina.cityweather.data.remote.model.Group
+import com.erikmedina.cityweather.data.local.model.City
 import com.erikmedina.cityweather.domain.interactor.base.Interactor
 
 interface GetCitiesTemperatureInteractor : Interactor {
 
     interface Callback {
 
-        fun onSuccess(group: Group)
+        fun onSuccess(cities: List<City>)
 
         fun onError()
     }

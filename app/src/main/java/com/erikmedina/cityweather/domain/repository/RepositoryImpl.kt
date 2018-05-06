@@ -3,6 +3,7 @@ package com.erikmedina.cityweather.domain.repository
 import android.util.Log
 import com.erikmedina.cityweather.data.remote.model.Group
 import com.erikmedina.cityweather.data.remote.service.ApiRest
+import com.erikmedina.cityweather.util.Mapper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,7 +21,7 @@ class RepositoryImpl constructor(private val apiRest: ApiRest) : Repository {
         call.enqueue(object : Callback<Group> {
             override fun onResponse(call: Call<Group>?, response: Response<Group>) {
                 if (response.isSuccessful) {
-                    callback.onSuccess(response.body())
+                    callback.onSuccess(Mapper.map(response.body()))
                 }
             }
 

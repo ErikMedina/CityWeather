@@ -1,6 +1,6 @@
 package com.erikmedina.cityweather.presentation.main
 
-import com.erikmedina.cityweather.data.remote.model.Group
+import com.erikmedina.cityweather.data.local.model.City
 import com.erikmedina.cityweather.domain.interactor.main.GetCitiesTemperatureInteractor
 import javax.inject.Inject
 
@@ -24,7 +24,7 @@ constructor() : MainContract.Presenter {
 
     override fun getCitiesTemperature() {
         interactor.run(citiesIds, object : GetCitiesTemperatureInteractor.Callback {
-            override fun onSuccess(group: Group) {
+            override fun onSuccess(cities: List<City>) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
