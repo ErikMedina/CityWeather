@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/label.city"
+        android:text="@string/label.city.colon"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/weatherLabel"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="@string/label.weather"
+        android:text="@string/label.weather.colon"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/timeLabel"
         app:layout_constraintTop_toBottomOf="@+id/nameLabel" />
@@ -35,7 +35,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
-        android:text="@string/label.temperature"
+        android:text="@string/label.temperature.colon"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
