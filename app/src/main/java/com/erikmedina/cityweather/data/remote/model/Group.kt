@@ -11,5 +11,5 @@ class Group {
     var cnt: Int? = null
     @SerializedName("list")
     @Expose
-    var listing: List<Listing>? = null
+    var listing: List<Listing> = emptyList()
 }

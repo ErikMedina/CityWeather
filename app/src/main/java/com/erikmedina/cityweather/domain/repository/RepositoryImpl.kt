@@ -3,6 +3,7 @@ package com.erikmedina.cityweather.domain.repository
 import android.util.Log
 import com.erikmedina.cityweather.data.remote.model.Group
 import com.erikmedina.cityweather.data.remote.service.ApiRest
+import com.erikmedina.cityweather.util.Mapper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -14,20 +15,19 @@ import javax.inject.Singleton
 @Singleton
 class RepositoryImpl constructor(private val apiRest: ApiRest) : Repository {
 
-    override fun getCitiesTemperature(citiesIds: IntArray) {
+    override fun getCitiesTemperature(citiesIds: IntArray, callback: Repository.Callback) {
         Log.i(TAG, "[getCitiesTemperature]")
         val call = apiRest.getCurrentCitiesTemperature(APP_ID, convertIdsToString(citiesIds), METRIC)
         call.enqueue(object : Callback<Group> {
             override fun onResponse(call: Call<Group>?, response: Response<Group>) {
                 if (response.isSuccessful) {
-                    Log.i(TAG, response.toString())
+                    callback.onSuccess(Mapper.map(response.body()))
                 }
             }
 
-            override fun onFailure(call: Call<Group>?, t: Throwable?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            override fun onFailure(call: Call<Group>?, t: Throwable) {
+                callback.onError(t)
             }
-
         })
     }
 

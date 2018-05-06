@@ -14,7 +14,7 @@ class Listing {
     var sys: Sys? = null
     @SerializedName("weather")
     @Expose
-    var weather: List<Weather>? = null
+    var weather: List<Weather> = emptyList()
     @SerializedName("main")
     @Expose
     var main: Main? = null
@@ -35,6 +35,5 @@ class Listing {
     var id: Int? = null
     @SerializedName("name")
     @Expose
-    var name: String? = null
-
+    var name: String = ""
 }
