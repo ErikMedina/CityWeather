@@ -1,5 +1,7 @@
 package com.erikmedina.cityweather.presentation.main
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
@@ -9,7 +11,9 @@ import com.erikmedina.cityweather.data.local.model.City
 import com.erikmedina.cityweather.di.component.DaggerMainComponent
 import com.erikmedina.cityweather.di.module.MainModule
 import com.erikmedina.cityweather.presentation.BaseActivity
+import com.erikmedina.cityweather.presentation.citydetail.CityDetailActivity
 import com.erikmedina.cityweather.presentation.main.adapter.CityAdapter
+import com.erikmedina.cityweather.util.Constant
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -17,10 +21,12 @@ class MainActivity : BaseActivity(), MainContract.View {
     @Inject
     lateinit var presenter: MainPresenter
 
+    private lateinit var context: Context
     private lateinit var adapter: CityAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        context = this
         initializeRecycler()
     }
 
@@ -30,6 +36,9 @@ class MainActivity : BaseActivity(), MainContract.View {
         adapter = CityAdapter(object : CityAdapter.OnItemClickListener {
             override fun onItemClick(city: City) {
                 Log.i(TAG, "[onItemClick] city selected: ${city.name}")
+                val intent = Intent(context, CityDetailActivity::class.java)
+                    intent.putExtra(Constant.EXTRA_CITY, city)
+                startActivity(intent)
             }
         })
         recycler.adapter = adapter
