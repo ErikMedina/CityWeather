@@ -8,7 +8,11 @@ import android.widget.TextView
 import com.erikmedina.cityweather.R
 import com.erikmedina.cityweather.data.local.model.City
 
-class CityAdapter : RecyclerView.Adapter<CityAdapter.ViewHolder>() {
+class CityAdapter(private val listener: OnItemClickListener) : RecyclerView.Adapter<CityAdapter.ViewHolder>() {
+
+    interface OnItemClickListener {
+        fun onItemClick(city: City)
+    }
 
     private var cities = emptyList<City>()
 
@@ -23,6 +27,7 @@ class CityAdapter : RecyclerView.Adapter<CityAdapter.ViewHolder>() {
         holder.name.text = cities[position].name
         holder.weather.text = cities[position].weather
         holder.temp.text = "${cities[position].temp}°C"//TODO: inject application context so we can use getString and format the string properly
+        holder.bind(cities[position], listener)
     }
 
     fun setCities(cities: List<City>) {
@@ -34,5 +39,11 @@ class CityAdapter : RecyclerView.Adapter<CityAdapter.ViewHolder>() {
         var name: TextView = itemView.findViewById(R.id.name)
         var weather: TextView = itemView.findViewById(R.id.weather)
         var temp: TextView = itemView.findViewById(R.id.temp)
+
+        fun bind(city: City, listener: OnItemClickListener) {
+            itemView.setOnClickListener {
+                listener.onItemClick(city)
+            }
+        }
     }
 }

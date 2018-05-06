@@ -2,6 +2,7 @@ package com.erikmedina.cityweather.presentation.main
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import com.erikmedina.cityweather.MyApplication
 import com.erikmedina.cityweather.R
 import com.erikmedina.cityweather.data.local.model.City
@@ -22,7 +23,15 @@ class MainActivity : BaseActivity(), MainContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        adapter = CityAdapter()
+        initializeRecycler()
+    }
+
+    private fun initializeRecycler() {
+        adapter = CityAdapter(object : CityAdapter.OnItemClickListener {
+            override fun onItemClick(city: City) {
+                Log.i(TAG, "[onItemClick] city selected: ${city.name}")
+            }
+        })
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(this)
     }
@@ -48,5 +57,9 @@ class MainActivity : BaseActivity(), MainContract.View {
 
     override fun setCities(cities: List<City>) {
         adapter.setCities(cities)
+    }
+
+    companion object {
+        val TAG = MainActivity::class.java.simpleName.toString()
     }
 }
