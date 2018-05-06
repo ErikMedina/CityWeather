@@ -1,11 +1,12 @@
 package com.erikmedina.cityweather.presentation.main
 
+import com.erikmedina.cityweather.data.remote.model.Group
 import com.erikmedina.cityweather.domain.interactor.main.GetCitiesTemperatureInteractor
 import javax.inject.Inject
 
 class MainPresenter
 @Inject
-constructor() : MainContract.Presenter, GetCitiesTemperatureInteractor.Callback {
+constructor() : MainContract.Presenter {
 
     @Inject
     lateinit var interactor: GetCitiesTemperatureInteractor
@@ -22,15 +23,15 @@ constructor() : MainContract.Presenter, GetCitiesTemperatureInteractor.Callback 
     }
 
     override fun getCitiesTemperature() {
-        interactor.run(citiesIds)
-    }
+        interactor.run(citiesIds, object : GetCitiesTemperatureInteractor.Callback {
+            override fun onSuccess(group: Group) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
 
-    override fun onSuccess() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            override fun onError() {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+        })
     }
 
     companion object {
