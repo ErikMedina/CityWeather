@@ -25,7 +25,7 @@ constructor() : MainContract.Presenter {
     override fun getCitiesTemperature() {
         interactor.run(citiesIds, object : GetCitiesTemperatureInteractor.Callback {
             override fun onSuccess(cities: List<City>) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                view?.setCities(cities)
             }
 
             override fun onError() {

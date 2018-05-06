@@ -1,6 +1,9 @@
 <resources>
+    <!--LABELS-->
     <string name="app_name">CityWeather</string>
     <string name="label.city">City:</string>
     <string name="label.weather">Weather:</string>
-    <string name="label.time">Time:</string>
+    <string name="label.temperature">Temperature:</string>
+
+    <string name="temperature">%1$s°C</string>
 </resources>
