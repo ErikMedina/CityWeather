@@ -1,9 +1,18 @@
 <resources>
     <!--LABELS-->
     <string name="app_name">CityWeather</string>
-    <string name="label.city">City:</string>
-    <string name="label.weather">Weather:</string>
-    <string name="label.temperature">Temperature:</string>
+    <string name="label.city">City</string>
+    <string name="label.weather">Weather</string>
+    <string name="label.temperature">Temperature</string>
+    <string name="label.wind">Wind</string>
+    <string name="label.city.colon">City:</string>
+    <string name="label.weather.colon">Weather:</string>
+    <string name="label.temperature.colon">Temperature:</string>
+    <string name="label.current.colon">Current:</string>
+    <string name="label.min.colon">Min</string>
+    <string name="label.max.colon">Max</string>
+    <string name="label.speed.colon">Speed:</string>
+    <string name="label.degree.colon">Degree:</string>
 
     <string name="temperature">%1$s°C</string>
 </resources>

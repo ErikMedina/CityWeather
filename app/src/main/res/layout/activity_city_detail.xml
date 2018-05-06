@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textAllCaps="true"
+        android:textSize="@dimen/textSize.large"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Madrid" />
+
+    <TextView
+        android:id="@+id/weatherLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/label.weather"
+        android:textSize="@dimen/textSize.medium"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toStartOf="@+id/weatherLabel"
+        app:layout_constraintTop_toBottomOf="@+id/weatherLabel"
+        tools:text="Sunny" />
+
+    <TextView
+        android:id="@+id/weatherDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="88dp"
+        android:layout_marginStart="88dp"
+        app:layout_constraintStart_toEndOf="@+id/weather"
+        app:layout_constraintTop_toTopOf="@+id/weather"
+        tools:text="HappySunny" />
+
+    <TextView
+        android:id="@+id/temperatureLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="@string/label.temperature"
+        android:textSize="@dimen/textSize.medium"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/weatherLabel"
+        app:layout_constraintTop_toBottomOf="@+id/weather" />
+
+    <TextView
+        android:id="@+id/tempCurrentLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/label.current.colon"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/weather"
+        app:layout_constraintTop_toBottomOf="@+id/temperatureLabel" />
+
+    <TextView
+        android:id="@+id/tempCurrent"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        app:layout_constraintStart_toStartOf="@+id/weatherDescription"
+        app:layout_constraintTop_toTopOf="@+id/tempCurrentLabel"
+        tools:text="25ºC" />
+
+    <TextView
+        android:id="@+id/tempMinLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/label.min.colon"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tempCurrentLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tempCurrentLabel" />
+
+    <TextView
+        android:id="@+id/tempMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tempCurrent"
+        app:layout_constraintTop_toTopOf="@+id/tempMinLabel"
+        tools:text="15ºC" />
+
+    <TextView
+        android:id="@+id/tempMaxLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/label.max.colon"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tempMinLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tempMinLabel" />
+
+    <TextView
+        android:id="@+id/tempMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tempMin"
+        app:layout_constraintTop_toTopOf="@+id/tempMaxLabel"
+        tools:text="30ºC" />
+
+    <TextView
+        android:id="@+id/windLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="@string/label.wind"
+        android:textSize="@dimen/textSize.medium"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/temperatureLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tempMaxLabel" />
+
+    <TextView
+        android:id="@+id/windSpeedLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/label.speed.colon"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tempMaxLabel"
+        app:layout_constraintTop_toBottomOf="@+id/windLabel" />
+
+    <TextView
+        android:id="@+id/windSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tempMax"
+        app:layout_constraintTop_toTopOf="@+id/windSpeedLabel"
+        tools:text="2.6" />
+
+    <TextView
+        android:id="@+id/windDegreeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/label.degree.colon"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/windSpeedLabel"
+        app:layout_constraintTop_toBottomOf="@+id/windSpeedLabel" />
+
+    <TextView
+        android:id="@+id/windDegree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/windSpeed"
+        app:layout_constraintTop_toTopOf="@+id/windDegreeLabel"
+        tools:text="37" />
+</android.support.constraint.ConstraintLayout>
