@@ -5,15 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.erikmedina.cityweather.MyApplication
 import com.erikmedina.cityweather.R
 import com.erikmedina.cityweather.data.local.model.City
-import javax.inject.Inject
 
 class CityAdapter : RecyclerView.Adapter<CityAdapter.ViewHolder>() {
-
-    @Inject
-    lateinit var myApplication: MyApplication
 
     private var cities = emptyList<City>()
 
@@ -27,7 +22,7 @@ class CityAdapter : RecyclerView.Adapter<CityAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.name.text = cities[position].name
         holder.weather.text = cities[position].weather
-//        holder.temp.text = myApplication.getString(R.string.temperature, cities[position].temp)
+        holder.temp.text = "${cities[position].temp}°C"//TODO: inject application context so we can use getString and format the string properly
     }
 
     fun setCities(cities: List<City>) {
